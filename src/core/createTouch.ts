@@ -1,11 +1,11 @@
-type Root = HTMLElement | Document;
+export type Root = HTMLElement | Document;
 //start
-type StartCallbackArguments = {
+export type StartCallbackArguments = {
   startX: number;
   startY: number;
   event: MouseEvent | TouchEvent;
 };
-type StartCallback = {
+export type StartCallback = {
   (arg: StartCallbackArguments): void;
 };
 //moveing
@@ -16,7 +16,7 @@ export type MoveCallbackArguments = {
   stepY: number;
   event: MouseEvent | TouchEvent;
 };
-type MoveCallback = {
+export type MoveCallback = {
   (arg: MoveCallbackArguments): void;
 };
 //end
@@ -27,18 +27,18 @@ export type EndCallbackArguments = {
   speedY: number;
   event?: MouseEvent | TouchEvent;
 };
-type EndCallback = {
+export type EndCallback = {
   (arg: EndCallbackArguments): void;
 };
 //option
-type Option = {
+export type Option = {
   root: Root;
   startCallback?: StartCallback;
   moveCallback?: MoveCallback;
   endCallback?: EndCallback;
 };
 
-type Callback = {
+export type Callback = {
   (e: MouseEvent | TouchEvent): void;
 };
 const isTouchEvent = (e: MouseEvent | TouchEvent): e is TouchEvent =>
@@ -197,8 +197,6 @@ export class FineTouch {
   }
 }
 
-const createTouch = (option: Option): FineTouch => {
+export const createTouch = (option: Option): FineTouch => {
   return new FineTouch(option);
 };
-
-export default createTouch;
