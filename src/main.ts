@@ -1,4 +1,2 @@
 'use strict';
-import { createTouch } from './core/createTouch';
-
-export { createTouch };
+export * from './core/createTouch';
