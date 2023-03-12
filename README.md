@@ -1,4 +1,4 @@
-<p align="center"><img width="200" src="http://jiangbei.online/images/logo200.png"/></p>
+<p align="center"><img width="150" src="http://jiangbei.online/images/fine-true-logo.svg"/></p>
 
 <h2 align="center">fine-touch</h2>
 
