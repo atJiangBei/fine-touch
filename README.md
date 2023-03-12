@@ -2,6 +2,11 @@
 
 <h2 align="center">fine-touch</h2>
 
+<p align="center">
+<img src="https://img.shields.io/github/stars/atJiangBei/fine-touch.svg"/>
+<img src="https://img.shields.io/github/forks/atJiangBei/fine-touch.svg"/>
+</p>
+
 ```ts
 type Root = HTMLElement | Document;
 //start
@@ -43,27 +48,16 @@ type Option = {
   endCallback?: EndCallback;
 };
 
-
 createTouch({
-    root: document.getElementById("dom"),
-    startCallback(arg:StartCallbackArguments) {},
-    moveCallback: (arg:MoveCallbackArguments) => {
-        onsole.log(arg)
-    },
-    endCallback: (arg:EndCallbackArguments) => {
-        console.log(arg)
-    },
+  root: document.getElementById('dom'),
+  startCallback(arg: StartCallbackArguments) {},
+  moveCallback: (arg: MoveCallbackArguments) => {
+    onsole.log(arg);
+  },
+  endCallback: (arg: EndCallbackArguments) => {
+    console.log(arg);
+  },
 });
-
 ```
 
-
-[github 地址](https://github.com/atJiangBei/fine-touch)
-
-[具体实现请看关联](https://atjiangbei.github.io/2019/04/04/%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%BB%91%E5%8A%A8%E8%BD%AE%E6%92%AD%E5%9B%BE.html)
-
-[关联](https://atjiangbei.github.io/)
-
-[以此实现的 vue 组件](https://github.com/atJiangBei/solar-vue)
-
-
+[github](https://github.com/atJiangBei/fine-touch)
