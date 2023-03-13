@@ -10,7 +10,7 @@
     <link
       rel="icon"
       type="image/x-icon"
-      href="//jiangbei.online/images/logo60.png"
+      href="//jiangbei.online/images/fine-logo.svg"
     />
     <style>
       * {
@@ -18,16 +18,96 @@
         padding: 0;
         user-select: none;
       }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+      }
       body {
         background-color: #f8f8f8;
       }
+      .content {
+        display: flex;
+      }
+      .display-interface {
+        width: 240px;
+        border-right: 2px dotted #d3d3d3;
+        line-height: 24px;
+        padding-left: 10px;
+        padding-top: 10px;
+      }
+      .operation-interface {
+        flex: 1;
+        background-color: #f5f5f5;
+      }
     </style>
   </head>
-  <body></body>
-  <script src="./fine-swiper.min.js"></script>
+  <body class="content">
+    <div class="display-interface">
+      <h2 style="margin-bottom: 10px; color: #333">请在右侧滑动</h2>
+      <ul>
+        <li>
+          <p><strong>起始点：</strong></p>
+          <span id="startingPoint">x：0;<br />y：0</span>
+        </li>
+        <li>
+          <p><strong>滑动中：</strong></p>
+          <span id="movePoint">
+            x方向步长：0;<br />
+            y方向步长：0;<br />
+            x方向移动距离：0;<br />
+            y方向移动距离：0;
+          </span>
+        </li>
+        <li>
+          <p><strong>结束点：</strong></p>
+          <span id="endPoint">x：0;<br />y：0;</span>
+        </li>
+        <li>
+          <p><strong>本次滑动速度</strong></p>
+          <span id="speed">x方向速度：0;<br />y方向速度：0;</span>
+        </li>
+      </ul>
+    </div>
+    <div class="operation-interface" id="operationInterface"></div>
+  </body>
+  <script src="./fine-touch.min.js"></script>
   <script>
     window.onload = function () {
+      const startingPoint = document.querySelector('#startingPoint');
+      const movePoint = document.querySelector('#movePoint');
+      const endPoint = document.querySelector('#endPoint');
+      const speed = document.querySelector('#speed');
+      const oi = document.querySelector('#operationInterface');
+
       const { createTouch } = FineTouch;
+
+      let x, y;
+      createTouch({
+        root: oi,
+        startCallback(arg) {
+          console.log('start', arg);
+          const { startX, startY } = arg;
+          startingPoint.innerHTML = `x：${startX};<br/>y：${startY}`;
+        },
+        moveCallback(arg) {
+          console.log('move', arg);
+          const { movedX, movedY, stepX, stepY } = arg;
+
+          movePoint.innerHTML = `
+            x方向步长：${stepX};<br/>
+            y方向步长：${stepY};<br/>
+            x方向移动距离：${movedX};<br/>
+            y方向移动距离：${movedY};<br/>
+          `;
+        },
+        endCallback(arg) {
+          console.log('end', arg);
+          const { movedX, movedY, speedX, speedY } = arg;
+          endPoint.innerHTML = `x：${movedX};<br />y：${movedY}`;
+          speed.innerHTML = `x方向速度：${speedX};<br />y方向速度：${speedY}；`;
+        },
+      });
     };
   </script>
 </html>

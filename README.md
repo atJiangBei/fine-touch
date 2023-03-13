@@ -1,4 +1,4 @@
-<p align="center"><img width="150" src="http://jiangbei.online/images/fine-true-logo.svg"/></p>
+<p align="center"><img width="150" src="http://jiangbei.online/images/fine-logo.svg"/></p>
 
 <h2 align="center">fine-touch</h2>
 
@@ -60,4 +60,5 @@ createTouch({
 });
 ```
 
+[demo](https://jiangbei.online/fine-touch)
 [github](https://github.com/atJiangBei/fine-touch)

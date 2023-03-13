@@ -1,8 +1,11 @@
 {
   "name": "fine-touch",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "main": "dist/fine-touch.min.js",
-  "description": "touch,vue swiper,react swiper,swipe",
+  "description": "Lightweight touch library",
+  "keywords": [
+    "touch","vue", "swiper","react", "swiper","swipe"
+  ],
   "types": "dist/main.d.ts",
   "scripts": {
     "dev": "rollup --config rollup/rollup.config.dev.js --watch",
